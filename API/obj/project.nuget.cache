@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AUwMY47uu2qrfx6xwWy2g3IC42awM/zaivYbIy6UBoQAYyILW/9Na6ADaz8ZQcUt8GrHG7m7bc9j8yjHLX35Hw==",
+  "dgSpecHash": "7OiLZkq8gZQdeqE/JIQvEGHWO6Zoyi7l4xyoI/w9i0+qgQnO4UR+Xt911RiL5OX/siWcZH+cAwT3d+QTGQRCNA==",
   "success": true,
   "projectFilePath": "C:\\DOTNET\\SocilalNetworkApp\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\draga\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\draga\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\entityframeworkcore.sqlite.nodatime\\5.1.0\\entityframeworkcore.sqlite.nodatime.5.1.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.7\\microsoft.aspnetcore.authentication.jwtbearer.3.1.7.nupkg.sha512",
@@ -85,7 +87,7 @@
     "C:\\Users\\draga\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.private.uri\\4.3.2\\system.private.uri.4.3.2.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\draga\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\draga\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
