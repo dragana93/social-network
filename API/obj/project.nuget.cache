@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7OiLZkq8gZQdeqE/JIQvEGHWO6Zoyi7l4xyoI/w9i0+qgQnO4UR+Xt911RiL5OX/siWcZH+cAwT3d+QTGQRCNA==",
+  "dgSpecHash": "JKqhrvw7pVR83qArpKrmqWoWcYmaXacKjhadmqDvvWuNn3SQ/66cD1ADddFpLCPzXLZrTRD32lJ+Hfp3PScYXQ==",
   "success": true,
   "projectFilePath": "C:\\DOTNET\\SocilalNetworkApp\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -122,7 +122,8 @@
     "C:\\Users\\draga\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\draga\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\draga\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\draga\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\draga\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }
