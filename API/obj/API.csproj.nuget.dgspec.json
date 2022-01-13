@@ -45,6 +45,10 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
             "EntityFrameworkCore.Sqlite.NodaTime": {
               "target": "Package",
               "version": "[5.1.0, )"
