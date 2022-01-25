@@ -38,10 +38,9 @@
              routerLinkActive='active'>Errors</a>
         </li>
       </ul>
-      <div class="dropdown"
-           *ngIf="(this.accountService.currentUser$ | async) as user"
-           dropdown>
-        <a class="dropdown-toggle text-light"
+      <div class="dropdown" *ngIf="(this.accountService.currentUser$ | async) as user" dropdown>
+        <img src="{{user.photoUrl}}" alt="{{user.username}}">
+        <a class="dropdown-toggle text-light ml-2"
            dropdownToggle>Welcome {{user.username | titlecase}} </a>
         <div class="dropdown-menu mt-3"
              *dropdownMenu>
