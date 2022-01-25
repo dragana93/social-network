@@ -14,9 +14,11 @@ export class MemberDetailComponent implements OnInit {
   member: Member;
 
   galleryOptions: NgxGalleryOptions[];
-  galleryImages: NgxGalleryImage[];
+  galleryImages: NgxGalleryImage[] = [];
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute) { }
+  constructor(private memberService: MembersService, private route: ActivatedRoute) {
+
+  }
 
   ngOnInit(): void {
     this.loadMember();
@@ -35,15 +37,15 @@ export class MemberDetailComponent implements OnInit {
   }
 
   getImages(): NgxGalleryImage[] {
-    const imageUrls = [];
-    for(const photo of this.member.photos){
-      imageUrls.push({
-        small: photo?.url,
-        medium: photo?.url,
-        big: photo?.url,
-      })
-      return imageUrls;
+    let imageUrls: NgxGalleryImage[] = [];
+      for(let photo of this.member.photos){
+        imageUrls.push({
+          small: photo.url,
+          medium: photo.url,
+          big: photo.url,
+        });
     }
+    return imageUrls;
   }
 
   loadMember(){
