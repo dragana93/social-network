@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Member } from '../models/member';
 import { map } from 'rxjs/operators';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 // const httpOptions =  {
 //   headers: new HttpHeaders({
@@ -47,5 +48,9 @@ export class MembersService {
 
   setMainPhoto(photoId: number){
     return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId: number){
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 }
