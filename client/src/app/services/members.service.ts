@@ -7,11 +7,6 @@ import { map } from 'rxjs/operators';
 import { PaginatedResult } from '../models/pagination';
 import { UserParams } from '../models/user-params';
 
-// const httpOptions =  {
-//   headers: new HttpHeaders({
-//     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))?.token
-//   })
-// }
 @Injectable({
   providedIn: 'root',
 })
@@ -43,8 +38,11 @@ export class MembersService {
   }
 
   getMember(username: string): Observable<Member> {
-    const member = this.members.find((x) => x.username === username);
-    if (member !== undefined) return of(member);
+    const member = [...this.memberCache.values()].reduce((arr, elem) => arr.concat(elem.result), [])
+    .find((member : Member) => member.username === username);
+    if(member){
+      return of(member);
+    }
     return this.http.get<Member>(this.baseUrl + 'users/' + username);
   }
 
@@ -72,9 +70,7 @@ export class MembersService {
         map((response) => {
           paginatedResult.result = response.body;
           if (response.headers.get('Pagination') !== null) {
-            paginatedResult.pagination = JSON.parse(
-              response.headers.get('Pagination')
-            );
+            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
           }
           return paginatedResult;
         })
