@@ -1,27 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { MembersService } from 'src/app/services/members.service';
 import { Member } from '../../models/member';
+import { MessageService } from '../../services/message.service';
+import { Message } from '../../models/message';
+import { Pagination } from '../../models/pagination';
 
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
-  styleUrls: ['./member-detail.component.css']
+  styleUrls: ['./member-detail.component.css'],
 })
 export class MemberDetailComponent implements OnInit {
-
+  @ViewChild('memberTabs', {static: true}) memberTabs: TabsetComponent;
   member: Member;
-
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[] = [];
+  activeTab: TabDirective;
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute) {
+  messages: Message[] = [];
+  pagination: Pagination;
+  container = 'Outbox';
+  pageNumber = 1;
+  pageSize = 5;
 
-  }
+  constructor(
+    private memberService: MembersService,
+    private route: ActivatedRoute,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.loadMember();
+    this.route.queryParams.subscribe(params => {
+      params.tab ? this.selectTab(params.tab) : this.selectTab(0)
+    })
 
     this.galleryOptions = [
       {
@@ -30,29 +45,48 @@ export class MemberDetailComponent implements OnInit {
         imagePercent: 100,
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
-        preview: false
+        preview: false,
       },
     ];
-
   }
 
   getImages(): NgxGalleryImage[] {
     let imageUrls: NgxGalleryImage[] = [];
-      for(let photo of this.member.photos){
-        imageUrls.push({
-          small: photo.url,
-          medium: photo.url,
-          big: photo.url,
-        });
+    for (let photo of this.member.photos) {
+      imageUrls.push({
+        small: photo.url,
+        medium: photo.url,
+        big: photo.url,
+      });
     }
     return imageUrls;
   }
 
-  loadMember(){
-    this.memberService.getMember(this.route.snapshot.paramMap.get('username')).subscribe(member =>{
-      this.member = member;
-      this.galleryImages = this.getImages();
-    })
+  loadMember() {
+    this.memberService
+      .getMember(this.route.snapshot.paramMap.get('username'))
+      .subscribe((member) => {
+        this.member = member;
+        this.galleryImages = this.getImages();
+      });
   }
 
+  onTabActivated(data: TabDirective) {
+    this.activeTab = data;
+    if (this.activeTab.heading === 'Messages' && this.messages.length === 0) {
+      this.loadMessages();
+    }
+  }
+
+  selectTab(tabId: number) {
+    this.memberTabs.tabs[tabId].active = true;
+  }
+
+  loadMessages() {
+    this.messageService
+      .getMessageThread(this.member.username)
+      .subscribe((messages) => {
+        this.messages = messages;
+      });
+  }
 }
